@@ -1,0 +1,90 @@
+root
++
+19
+main(String[] args)
+SEQ
+19
+main(String[] args)
+SEQ
+19
+main(String[] args)
+root.001
+!
+22
+请求行输出"第1个月的兔子对数:    1"
+MSG
+27
+请求系统字符串行输出"第1个月的兔子对数:    1"
+MSG
+37
+System.out.println("第1个月的兔子对数:    1")
+root.002
+!
+22
+请求行输出"第2个月的兔子对数:    1"
+MSG
+27
+请求系统字符串行输出"第2个月的兔子对数:    1"
+MSG
+37
+System.out.println("第2个月的兔子对数:    1")
+root.003
+:
+18
+说明f1=1,f2=1,f,M=24
+DCL
+22
+说明int的f1=1,f2=1,f,M=24
+DCL
+20
+int f1=1,f2=1,f,M=24
+root.004
+*
+12
+对i=3到i<=M重复做
+FOR
+22
+对int的i=3到i<=M重复做i加1步循环
+FOR
+16
+int i=3;i<=M;i++
+root.004.001
+:
+4
+f=f2
+OPE
+4
+f=f2
+OPE
+4
+f=f2
+root.004.002
+:
+8
+f2=f1+f2
+OPE
+8
+f2=f1+f2
+OPE
+8
+f2=f1+f2
+root.004.003
+:
+4
+f1=f
+OPE
+4
+f1=f
+OPE
+4
+f1=f
+root.004.004
+!
+25
+请求行输出"第"+i+"个月的兔子对数: "+f2
+MSG
+30
+请求系统字符串行输出"第"+i+"个月的兔子对数: "+f2
+MSG
+40
+System.out.println("第"+i+"个月的兔子对数: "+f2)

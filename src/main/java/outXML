@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Classes>
+  <class1 name="定义公共的Rabbits类">
+    <属性/>
+    <方法>
+      <+静态的主方法(参数系列:字符串[]):空类型/>
+    </方法>
+  </class1>
+</Classes>
