@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import java.io.*;
 import java.util.List;
+import org.apache.log4j.*;
 
 public class Extract {
     public String name;
@@ -18,7 +19,7 @@ public class Extract {
     public Element outroot=outdoc.addElement("Classes");  //输出根节点
     public Element atts=DocumentHelper.createElement("属性");                                     //类图属性
     public Element methods=DocumentHelper.createElement("方法");                                  //类图方法
-
+    static Logger log=Logger.getLogger(Extract.class);
 
     @Test
     public void Test1() throws Exception{
@@ -35,25 +36,29 @@ public class Extract {
 //            Element e=iterator.next();
 //            list(e);
 //        }
+        PropertyConfigurator.configure("src/log4j.properties");
+
          SAXReader saxReader=new SAXReader();
          Document document=saxReader.read(new File("src/main/java/program.mm"));
 
          Element root=document.getRootElement();
          Element classlevel=(Element)document.selectSingleNode("/map/node/node/node");
-         System.out.println(classlevel);
+//         System.out.println(classlevel);
          //类级别识别到后，就会识别atts属性、methods方法
          //        System.out.println(classlevel);
          //        log.trace("classlevel");
          Attribute attribute=classlevel.attribute("TEXT");//当前Text属性
          Attribute att2=classlevel.attribute("ID");//当前ID属性
 //        classlevel = classlevel.element("node");
-        System.out.println(classlevel);
+//        System.out.println(classlevel);
+        log.trace(classlevel);
 //         String IDatt=att2.getText();//ID值
 //        System.out.println(IDatt);
         while(true)//直到识别到类那一级
         {
             String IDatt=classlevel.attributeValue("ID");
-            System.out.println(classlevel.attributeValue("TEXT"));
+//            System.out.println(classlevel.attributeValue("TEXT"));
+            log.trace(classlevel.attributeValue("TEXT"));
             if (IDatt.equals("ID_211111001")) {
                 //进入类的操作，字符串匹配
                 break;
@@ -97,7 +102,8 @@ public class Extract {
             for (Element e : attss) {
                 Element newatt = DocumentHelper.createElement(e.attributeValue("TEXT"));
                 atts.add(newatt);
-                System.out.println(e.attributeValue("TEXT"));
+//                System.out.println(e.attributeValue("TEXT"));
+                log.trace(e.attributeValue("TEXT"));
             }
         }
 
@@ -121,7 +127,8 @@ public class Extract {
             for (Element e : methodss) {
                 Element newmethod = DocumentHelper.createElement(e.attributeValue("TEXT"));
                 methods.add(newmethod);
-                System.out.println(e.attributeValue("TEXT"));
+//                System.out.println(e.attributeValue("TEXT"));
+                log.trace(e.attributeValue("TEXT"));
             }
         }
 
