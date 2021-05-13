@@ -36,7 +36,7 @@ public class Extract {
 //            list(e);
 //        }
          SAXReader saxReader=new SAXReader();
-         Document document=saxReader.read(new File("src/main/java/testio.mm"));
+         Document document=saxReader.read(new File("src/main/java/program.mm"));
 
          Element root=document.getRootElement();
          Element classlevel=(Element)document.selectSingleNode("/map/node/node/node");
@@ -46,7 +46,7 @@ public class Extract {
          //        log.trace("classlevel");
          Attribute attribute=classlevel.attribute("TEXT");//当前Text属性
          Attribute att2=classlevel.attribute("ID");//当前ID属性
-        classlevel = classlevel.element("node");
+//        classlevel = classlevel.element("node");
         System.out.println(classlevel);
 //         String IDatt=att2.getText();//ID值
 //        System.out.println(IDatt);
